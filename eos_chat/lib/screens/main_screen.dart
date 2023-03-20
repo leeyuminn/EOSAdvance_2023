@@ -78,44 +78,45 @@ class _LoginSignUpScreenState extends State<LoginSignUpScreen>{
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         GestureDetector(
+                          onTap: () {
+                            isSignupScreen = false;
+                          },
                           child: Column(
                             children: [
                               Text(
                                 'LOGIN',
-                                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                                selectionColor: isSignupScreen ? Palette.textColor1 : Palette.activeColor,
+                                style: TextStyle(
+                                  color: !isSignupScreen ? Palette.activeColor : Palette.textColor1,
+                                  fontSize: 16,
+                                  fontWeight: !isSignupScreen ? FontWeight.bold : FontWeight.normal
+                                )
                               ),
-                              //TODO : isSignupScreen이 false일 때만 밑줄이 생기도록
-                              Container(//밑줄
-                                margin: EdgeInsets.only(top: 3),
-                                height: 2,
-                                width: 55,
-                                color: Colors.green,
-                              )
-                            ],
-                          ),
-                        ),
+                              if(isSignupScreen == false)
+                                Container(//밑줄
+                                  margin: EdgeInsets.only(top: 3),
+                                  height: 2,
+                                  width: 55,
+                                  color: Colors.green,)],),),
                         GestureDetector(
+                          onTap: () {
+                            isSignupScreen = true;
+                          },
                           child: Column(
                             children: [
                               Text(
                                 'SIGNUP',
-                                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                                selectionColor: isSignupScreen ? Palette.activeColor : Palette.textColor1,
+                                  style: TextStyle(
+                                      color: isSignupScreen ? Palette.activeColor : Palette.textColor1,
+                                      fontSize: 16,
+                                      fontWeight: isSignupScreen ? FontWeight.bold : FontWeight.normal
+                                  )
                               ),
-                              //TODO : isSignupScreen이 true일 때만 밑줄이 생기도록
-                              /*if(isSignupScreen == true) TextDecoration(underline),*/
-                              Container(
-                                margin: EdgeInsets.only(top: 3),
-                                height: 2,
-                                width: 55,
-                                color: Colors.green,
-                              )
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
+                              if(isSignupScreen == true)
+                                Container(
+                                  margin: EdgeInsets.only(top: 3),
+                                  height: 2,
+                                  width: 55,
+                                  color: Colors.green,)],),)],),
                     Container(
                       child: Form(
                         child: Column(
