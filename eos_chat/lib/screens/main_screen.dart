@@ -83,7 +83,9 @@ class _LoginSignUpScreenState extends State<LoginSignUpScreen>{
                       children: [
                         GestureDetector(
                           onTap: () {
-                            isSignupScreen = false;
+                            setState(() {
+                              isSignupScreen = false;
+                            });
                           },
                           child: Column(
                             children: [
@@ -103,7 +105,9 @@ class _LoginSignUpScreenState extends State<LoginSignUpScreen>{
                                   color: Colors.green,)],),),
                         GestureDetector(
                           onTap: () {
-                            isSignupScreen = true;
+                            setState(() {
+                              isSignupScreen = true;
+                            });
                           },
                           child: Column(
                             children: [
@@ -284,7 +288,6 @@ class _LoginSignUpScreenState extends State<LoginSignUpScreen>{
                     label: Text('Google'),
                   )
                 ],
-
               )
           ),
         ],
